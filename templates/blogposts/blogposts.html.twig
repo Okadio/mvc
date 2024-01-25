@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogpostsController!{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Create a blogpost</h1>
+
+
+    {{ form_errors(blogpostsForm) }}
+
+    {{ form_start(blogpostsForm) }}
+        {{ form_row(blogpostsForm.blogtitle, {'label': 'Title', 'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}
+        {{ form_row(blogpostsForm.blogtext, {'label': 'Text', 'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}
+
+        <button class="btn btn-lg btn-primary" type="submit">
+            Create
+        </button>
+    {{ form_end(blogpostsForm) }}
+{% endblock %}

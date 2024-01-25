@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogpostsController!{% endblock %}
+
+{% block body %}
+    <style>
+        h1, h2, p {
+            text-align: center;
+        }
+    </style>
+    <h1 class="h3 mb-3 font-weight-normal">Here are all blogpost</h1>
+
+    {% for blogpost in blogposts %}
+        <h2> {{ blogpost.blogtitle }} </h2>
+        <p> {{ blogpost.blogtext }} </p>
+    {% endfor %}
+{% endblock %}

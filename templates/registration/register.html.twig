@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.name, {'label': 'Name', 'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}
+        {{ form_row(registrationForm.email, {'label': 'E-Mail', 'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}
+        {{ form_row(registrationForm.plainPassword, {'label': 'Password', 'attr': {'class': 'form-control', 'autofocus': 'autofocus'}}) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button class="btn btn-lg btn-primary" type="submit">
+            Register
+        </button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

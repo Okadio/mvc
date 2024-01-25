@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage!{% endblock %}
+
+{% block body %}
+    <style>
+        #parent {text-align: center}
+        #parent ul {display: inline-block; text-align: left}
+    </style>
+<div class="text-center" id="parent">
+
+    <h1>Blog Posts!</h1>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h2>Hello {{ app.user.name }}! ✅</h2>
+        <a class="nav-link text-black-50" href="{{ path('app_blogposts') }}">See all Blogpost</a>
+        <a class="nav-link text-black-50" href="{{ path('app_blogposts_create') }}">Create a Blogpost</a>
+        <a class="nav-link text-black-50" href="{{ path('app_logout') }}">Logout</a>
+    {% else %}
+        <h2>Login to see Blogposts</h2>
+        <a class="nav-link text-black-50" href="{{ path('app_login') }}">Login</a>
+        <a class="btn btn-dark" href={{ path('app_register') }} >Register</a>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="nav-link" href="{{ path('app_login') }}">Admin</a>
+    {% endif %}
+    </div>
+{% endblock %}
